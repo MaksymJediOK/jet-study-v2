@@ -10,7 +10,8 @@ export default function EventPage() {
           <h3 className='text-2xl tracking-tight'>Фільтри</h3>
           <FilterBlock />
         </div>
-        <div className='w-[100%]'>
+
+        <div className='w-full'>
           <div className='flex items-center justify-between '>
             <FreeSwitcher />
             <div className='w-80'>
