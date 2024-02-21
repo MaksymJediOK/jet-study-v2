@@ -1,1 +1,1 @@
-export * from './FilterColumn'
+export * from './FilterBlock'
