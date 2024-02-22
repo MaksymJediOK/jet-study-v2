@@ -28,7 +28,9 @@ const FilterBlock = () => {
       params.append('lang', filter.lang)
     } else if (filter.lang) params.append('lang', filter.lang)
 
-    router.push(`?${params.toString()}`)
+    router.push(`?${params.toString()}`, {
+      scroll: false
+    })
   }
   return (
     <>

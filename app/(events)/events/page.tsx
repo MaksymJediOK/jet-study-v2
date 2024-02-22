@@ -12,12 +12,13 @@ export default function EventPage() {
         </div>
 
         <div className='w-full'>
-          <div className='flex items-center justify-between '>
+          <div className='flex items-center justify-between mb-6'>
             <FreeSwitcher />
             <div className='w-80'>
               <SearchInput />
             </div>
           </div>
+          parallel routes
         </div>
       </div>
     </div>
