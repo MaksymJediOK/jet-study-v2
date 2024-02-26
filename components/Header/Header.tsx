@@ -1,7 +1,8 @@
 import './Header.scss'
 import { Button } from '@/components/ui/button'
 import { ShoppingCart } from 'lucide-react'
-import Link from 'next/link'
+
+import { CartDialog } from './ui'
 
 const Header = () => {
   return (
@@ -16,9 +17,9 @@ const Header = () => {
         <div className='flex items-center gap-4'>
           <Button variant='secondary'>Стати інструктором</Button>
           <div className='p-2'>
-            <Link href='/profile' className='no-underline'>
-              <ShoppingCart size={16} />
-            </Link>
+            <CartDialog>
+              <ShoppingCart size={16} className='cursor-pointer' />
+            </CartDialog>
           </div>
         </div>
       </nav>

@@ -1,5 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { LectorInfo } from '@/components/AccordionList/components/LectorInfo'
+import { LectorInfo } from '@/components/AccordionList/ui/LectorInfo'
 
 const AccordionList = () => {
   return (
