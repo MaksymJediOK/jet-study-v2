@@ -1,25 +1,24 @@
-import { FilterBlock } from '@/components/FilterColumn'
-import { FreeSwitcher } from '@/components/FreeSwitcher'
 import { SearchInput } from '@/components/ui/input'
+import { SelectFilters } from '@/components/SelectFilters'
+import { cn } from '@/lib/utils'
+import { eUK } from '@/app/_font/eUK'
+import { BigEventCard } from '@/components/Cards'
 
-export default function EventPage() {
+export default function EventsPage() {
   return (
-    <div className='container mx-auto mt-10 max-w-screen-xl '>
-      <div className='ml-[95px] flex gap-12'>
-        <div>
-          <h3 className='text-2xl tracking-tight'>Фільтри</h3>
-          <FilterBlock />
-        </div>
-
-        <div className='w-full'>
-          <div className='flex items-center justify-between mb-6'>
-            <FreeSwitcher />
-            <div className='w-80'>
-              <SearchInput />
-            </div>
-          </div>
-          parallel routes
-        </div>
+    <div className='container mx-auto mt-10 max-w-screen-xl text-main'>
+      <h2 className={cn('text-[30px] font-medium leading-9 tracking-tighter', eUK.className)}>
+        Знайди те що тебе цікавить
+      </h2>
+      <div className='mt-4 flex items-center justify-between'>
+        <SelectFilters />
+        <SearchInput />
+      </div>
+      <div className='mt-10'>
+        <h2 className={cn('text-[30px] font-medium leading-9 tracking-tighter mb-4', eUK.className)}>
+          Найближчі події
+        </h2>
+        <BigEventCard />
       </div>
     </div>
   )
