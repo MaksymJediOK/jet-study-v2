@@ -2,7 +2,7 @@ import { SearchInput } from '@/components/ui/input'
 import { SelectFilters } from '@/components/SelectFilters'
 import { cn } from '@/lib/utils'
 import { eUK } from '@/app/_font/eUK'
-import { BigEventCard } from '@/components/Cards'
+import { BigEventCard, DefaultEventCard } from '@/components/Cards'
 
 export default function EventsPage() {
   return (
@@ -19,6 +19,11 @@ export default function EventsPage() {
           Найближчі події
         </h2>
         <BigEventCard />
+        <div className='mt-6 flex gap-6'>
+            <DefaultEventCard/>
+            <DefaultEventCard/>
+            <DefaultEventCard/>
+        </div>
       </div>
     </div>
   )
