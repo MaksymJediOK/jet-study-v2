@@ -19,7 +19,8 @@ const Header = () => {
           <Button
             size='lg'
             variant='ghost'
-            className='h-[40px] rounded-[48px] bg-[#F3EBFF] py-2 font-semibold leading-[14px] text-[#9E53EA]'
+            className='h-[40px] rounded-[48px] bg-[#F3EBFF] py-2 font-semibold leading-[14px] text-[#9E53EA]
+            transition delay-150 ease-in-out hover:bg-[#F3EBFF] hover:text-[#9E53EA]'
           >
             Стати інструктором
           </Button>
