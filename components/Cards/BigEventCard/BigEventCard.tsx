@@ -8,7 +8,7 @@ import { ChevronRight } from 'lucide-react'
 const BigEventCard = () => {
   return (
     <section className='relative w-[1200px] text-main'>
-      <Image src={Placeholder} className='object-cover' alt='card image' />
+      <Image src={Placeholder} className='object-cover' alt='card image' priority />
       <div className='absolute left-[37px] top-[59px]'>
         <div className='flex gap-[147px]'>
           <div className='flex items-center gap-2'>

@@ -1,6 +1,6 @@
 import './Header.scss'
 import { Button } from '@/components/ui/button'
-import { ShoppingCart } from 'lucide-react'
+import { ShoppingCart, User } from 'lucide-react'
 import { CartDialog } from './ui'
 import { cn } from '@/lib/utils'
 import { eUK } from '@/app/_font/eUK'
@@ -15,12 +15,21 @@ const Header = () => {
           <li className='px-4 py-2'>Події</li>
           <li className='px-4 py-2'>FAQ</li>
         </ul>
-        <div className='flex items-center gap-4'>
-          <Button variant='secondary'>Стати інструктором</Button>
+        <div className='flex items-center gap-2'>
+          <Button
+            size='lg'
+            variant='ghost'
+            className='h-[40px] rounded-[48px] bg-[#F3EBFF] py-2 font-semibold leading-[14px] text-[#9E53EA]'
+          >
+            Стати інструктором
+          </Button>
           <div className='p-2'>
             <CartDialog>
               <ShoppingCart size={16} className='cursor-pointer' />
             </CartDialog>
+          </div>
+          <div className='p-2'>
+            <User size={16} className='cursor-pointer' />
           </div>
         </div>
       </nav>
