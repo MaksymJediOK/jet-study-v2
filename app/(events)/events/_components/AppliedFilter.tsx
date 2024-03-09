@@ -12,7 +12,7 @@ const AppliedFilter = async () => {
         Події
       </h2>
       <div className='grid grid-cols-3 grid-rows-3 gap-6'>
-        {currentEvents.map((event, index) => (
+        {currentEvents.map((event) => (
           <DefaultEventCard
             title={event.title}
             category={event.eventType}
