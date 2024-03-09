@@ -16,8 +16,8 @@ const TypeSelectGroup = () => {
       <SelectContent>
         <SelectGroup className='w-[130px]'>
           <SelectLabel>Формат</SelectLabel>
-          <SelectItem value='ua'>Вебінар</SelectItem>
-          <SelectItem value='eng'>Лекція</SelectItem>
+          <SelectItem value='webinar'>Вебінар</SelectItem>
+          <SelectItem value='lecture'>Лекція</SelectItem>
         </SelectGroup>
       </SelectContent>
     </>
