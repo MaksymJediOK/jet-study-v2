@@ -2,19 +2,20 @@ import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { eUK } from '@/app/_font/eUK'
 import { ChevronRight } from 'lucide-react'
+import { EventCard } from '@/types/event'
 
-const DefaultEventCard = () => {
+const DefaultEventCard = ({ title, category, contentType, price, thumbnail, imgId }: EventCard & {imgId: number}) => {
   return (
     <div className='flex w-[384px] flex-col gap-[20px] rounded-[8px] p-4 shadow-lg'>
-      <Image src='/placeholders/placeholder_card_1.png' alt='card image' width={352} height={225} />
+      <Image src={`/placeholders/placeholder_card_${imgId}.png`} alt='card image' width={352} height={225} />
       <div>
         <div className='flex justify-between uppercase'>
           <div className='flex items-center gap-2'>
-            <p className='text-sm leading-[14px] opacity-70'>Дизайн </p>
+            <p className='text-sm leading-[14px] opacity-70'>{category} </p>
             <svg xmlns='http://www.w3.org/2000/svg' width='3' height='4' viewBox='0 0 3 4' fill='none'>
               <circle opacity='0.7' cx='1.5' cy='2' r='1.5' fill='#212121' />
             </svg>
-            <p className='text-sm leading-[14px] opacity-70'>Вебінар </p>
+            <p className='text-sm leading-[14px] opacity-70'>{contentType} </p>
           </div>
           <p className='text-sm leading-[14px] opacity-70 '>24.02 </p>
         </div>
@@ -24,11 +25,11 @@ const DefaultEventCard = () => {
             eUK.className,
           )}
         >
-          10 евристик Якоба Нільсона та їх застосування в веб-інтерфейсах
+          {title}
         </h4>
       </div>
       <div className='flex justify-between'>
-        <h4 className='text-2xl font-semibold leading-6'>1200 ₴</h4>
+        <h4 className='text-2xl font-semibold leading-6'>{price} ₴</h4>
         <div className='flex items-center'>
           <span className='text-sm font-semibold'>Детальніше</span>
           <ChevronRight size={20} />

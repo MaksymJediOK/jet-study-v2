@@ -21,7 +21,7 @@ const CartDialog = ({ children }: { children: React.ReactNode }) => (
           Кошик
         </SheetTitle>
       </SheetHeader>
-      <div className='grid gap-4 py-4'>контент</div>
+      <div className='grid gap-4 py-4'>Кошик порожній 😢</div>
       <SheetFooter>
         <SheetClose asChild>
           <div className='flex w-full flex-col items-center justify-center gap-8'>

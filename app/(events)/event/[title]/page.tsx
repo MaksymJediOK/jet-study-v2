@@ -2,6 +2,7 @@ import { ChevronLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { AccordionList } from '@/components/AccordionList'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function DynamicEvent({ params }: { params: { title: string } }) {
   return (
@@ -15,10 +16,18 @@ export default function DynamicEvent({ params }: { params: { title: string } }) 
         </h5>
       </div>
       <div className='flex gap-6 md:mt-5 lg:mt-10'>
-        <div className='h-[778px] w-[580px] bg-neutral-600'>123</div>
+        <div className='h-[778px] w-[580px] bg-neutral-600'>
+          <img
+            src='https://m.media-amazon.com/images/M/MV5BYTNlOGZhYzgtMmE3OC00Y2NiLWFhNWQtNzg5MjRhNTJhZGVmXkEyXkFqcGdeQXVyNzg5MzIyOA@@._V1_.jpg'
+            className='h-full w-full'
+            alt='card image'
+            width={580}
+            height={778}
+          />
+        </div>
         <section className='lg:w-[590px]'>
-          <h4 className='mb-2 scroll-m-20 text-base font-semibold leading-7 tracking-tight'>
-            People stopped telling jokes
+          <h4 className='mb-2 scroll-m-20 text-base font-semibold uppercase leading-7 tracking-tight'>
+            ключові евристики
           </h4>
           <p className='leading-[26px]'>
             Розглянемо ключові евристики, які визначають основні принципи ефективного дизайну інтерфейсів

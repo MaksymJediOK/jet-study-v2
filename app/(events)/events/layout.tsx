@@ -4,6 +4,10 @@ type EventsLayoutProps = {
   children?: React.ReactNode
 }
 
-export default async function EventsLayout({ children }: EventsLayoutProps) {
-  return <div className='hello'>{children}</div>
+export default async function EventsLayout({ children}: EventsLayoutProps) {
+  return (
+    <>
+      {children}
+    </>
+  )
 }

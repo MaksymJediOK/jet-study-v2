@@ -23,7 +23,7 @@ Input.displayName = 'Input'
 const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
     return (
-      <div className='flex items-center border border-input rounded-3xl'>
+      <div className='flex items-center border border-input  rounded-l-[48px] border-r-0'>
         <Search width={16} height={16} className='my-[10px] ml-4 mr-2' color='grey' />
         <input
           type={type}
