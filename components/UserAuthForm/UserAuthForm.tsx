@@ -7,9 +7,21 @@ import { formSchema, UserAuthType } from './formSchema'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import useSWRMutation from 'swr/mutation'
+import { registerUser } from '@/lib/authMutations'
+import { RotateCw } from 'lucide-react'
 
 const UserAuthForm = ({ children }: { children?: React.ReactNode }) => {
-  const onSubmit = (values: UserAuthType) => {}
+  const { trigger, isMutating } = useSWRMutation('/auth/register', registerUser)
+  const onSubmit = async ({ email, password }: UserAuthType) => {
+    const result = await trigger({
+      userName: email,
+      email,
+      password,
+      confirmPassword: password,
+    })
+    console.log(result)
+  }
   const form = useForm<UserAuthType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -48,7 +60,8 @@ const UserAuthForm = ({ children }: { children?: React.ReactNode }) => {
         />
         <div>
           {children ? children : null}
-          <Button type='submit' className='mt-4 h-[40px] w-full leading-6'>
+          <Button type='submit' className='mt-4 h-[40px] w-full leading-6' disabled={isMutating}>
+            {isMutating && <RotateCw className='mr-2 h-4 w-4 animate-spin' />}
             Зареєструватись з поштою
           </Button>
         </div>
