@@ -3,8 +3,13 @@ import { Button } from '@/components/ui/button'
 import { AccordionList } from '@/components/AccordionList'
 import Link from 'next/link'
 import Image from 'next/image'
+import { fetchData } from '@/lib/fetchData'
+import { ExtendedEvent } from '@/types/event'
 
-export default function DynamicEvent({ params }: { params: { title: string } }) {
+export default async function DynamicEvent({ params }: { params: { title: string } }) {
+  // remake page considering fetched data
+  const detailedEvent = await fetchData<ExtendedEvent>({ url: `/event/${params.title}` })
+
   return (
     <>
       <div className='flex gap-2 px-4 py-2'>
@@ -27,12 +32,10 @@ export default function DynamicEvent({ params }: { params: { title: string } }) 
         </div>
         <section className='lg:w-[590px]'>
           <h4 className='mb-2 scroll-m-20 text-base font-semibold uppercase leading-7 tracking-tight'>
-            ключові евристики
+            {detailedEvent.title}
           </h4>
           <p className='leading-[26px]'>
-            Розглянемо ключові евристики, які визначають основні принципи ефективного дизайну інтерфейсів
-            та дізнаємось, як ці принципи можна успішно застосовувати в сучасних веб-сайтах та додатках,
-            щоб забезпечити зручність, ефективність та задоволення користувачів.
+            {detailedEvent.longDescription}
           </p>
           <div className='mt-8 flex flex-col gap-1'>
             <p className='text-base leading-7'>
