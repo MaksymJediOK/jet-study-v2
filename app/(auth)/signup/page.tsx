@@ -2,11 +2,12 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { UserAuthForm } from '@/components/UserAuthForm'
 import { useGoogleLogin } from '@react-oauth/google'
 import { Button } from '@/components/ui/button'
+import { SignUpFrom } from '@/components/UserAuthForm'
 
 export default function SignUpPage() {
+
   const login = useGoogleLogin({
     onSuccess: (tokenResponse) => console.log(tokenResponse),
     onError: (errorResponse) => console.log(errorResponse),
@@ -34,7 +35,7 @@ export default function SignUpPage() {
         </span>
       </Button>
       <h4 className='my-3 text-center text-base leading-7 tracking-tighter opacity-50'>Або</h4>
-      <UserAuthForm />
+      <SignUpFrom/>
     </>
   )
 }

@@ -5,6 +5,12 @@ export type RegisterFields = {
   confirmPassword: string
 }
 
+export type LoginFields = Omit<RegisterFields, 'userName' | 'confirmPassword'>
+
+export type GoogleLoginArg = {
+  credential: string
+}
+
 export type Token = {
   token: string
 }

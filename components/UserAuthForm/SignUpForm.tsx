@@ -11,7 +11,7 @@ import useSWRMutation from 'swr/mutation'
 import { registerUser } from '@/lib/authMutations'
 import { RotateCw } from 'lucide-react'
 
-const UserAuthForm = ({ children }: { children?: React.ReactNode }) => {
+const SignUpFrom = () => {
   const { trigger, isMutating } = useSWRMutation('/auth/register', registerUser)
   const onSubmit = async ({ email, password }: UserAuthType) => {
     const result = await trigger({
@@ -58,16 +58,13 @@ const UserAuthForm = ({ children }: { children?: React.ReactNode }) => {
             </FormItem>
           )}
         />
-        <div>
-          {children ? children : null}
           <Button type='submit' className='mt-4 h-[40px] w-full leading-6' disabled={isMutating}>
             {isMutating && <RotateCw className='mr-2 h-4 w-4 animate-spin' />}
             Зареєструватись з поштою
           </Button>
-        </div>
       </form>
     </Form>
   )
 }
 
-export { UserAuthForm }
+export { SignUpFrom }

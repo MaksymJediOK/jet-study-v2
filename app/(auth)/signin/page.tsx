@@ -2,13 +2,21 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { UserAuthForm } from '@/components/UserAuthForm'
+import { SignInForm } from '@/components/UserAuthForm'
 import { Button } from '@/components/ui/button'
 import { useGoogleLogin } from '@react-oauth/google'
+import useSWRMutation from 'swr/mutation'
+import { loginViaGoogle } from '@/lib/authMutations'
 
 export default function SignInPage() {
+  const { trigger, isMutating } = useSWRMutation('/auth/login-with-google', loginViaGoogle)
   const login = useGoogleLogin({
-    onSuccess: (tokenResponse) => console.log(tokenResponse),
+    onSuccess: async (tokenResponse) => {
+      const res = await trigger({
+        credential: tokenResponse.access_token,
+      })
+      console.log(res)
+    },
     onError: (errorResponse) => console.log(errorResponse),
   })
 
@@ -32,9 +40,7 @@ export default function SignInPage() {
         <span className='text-sm font-medium leading-6 text-[#0F172A] '>Увійти через Google </span>
       </Button>
       <h4 className='my-3 text-center text-base leading-7 tracking-tighter opacity-50'>Або</h4>
-      <UserAuthForm>
-        <p className='mt-3 leading-7 text-[#0F172A] underline opacity-70'>Забули пароль?</p>
-      </UserAuthForm>
+      <SignInForm />
     </>
   )
 }
