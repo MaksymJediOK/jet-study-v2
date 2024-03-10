@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { FilterParams, FilterRequestParams } from '@/types'
+import { FilterRequestParams } from '@/types'
 
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
