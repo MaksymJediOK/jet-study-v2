@@ -3,3 +3,8 @@ export type FilterParams = {
   format: string | null | undefined,
   lang: string | null | undefined,
 }
+
+export type FilterRequestParams = {
+  eventTypeId: string | null
+  categoryId: string | null
+}

@@ -1,3 +1,8 @@
+export type Lector = {
+  id: string
+  fullName: string
+}
+
 export type Event = {
   id: number
   title: string
@@ -5,17 +10,9 @@ export type Event = {
   imageSrc: string
   startDate: Date
   startTime: string
-  creator: {
-    id: string
-    fullName: string
-  }
+  creator: Lector
   eventType: string
   eventTypeId: number
   categoryId: number
   lecturers: Lector[]
-}
-
-export type Lector = {
-  id: string
-  fullName: string
 }

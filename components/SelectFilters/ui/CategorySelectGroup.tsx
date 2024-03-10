@@ -16,9 +16,9 @@ const CategorySelectGroup = () => {
       <SelectContent>
         <SelectGroup className='w-[145px]'>
           <SelectLabel>Напрямки</SelectLabel>
-          <SelectItem value='design'>Дизайн</SelectItem>
-          <SelectItem value='ai'>ШІ</SelectItem>
-          <SelectItem value='finances'>Фінанси</SelectItem>
+          <SelectItem value='1'>Розробка</SelectItem>
+          <SelectItem value='2'>Дизайн</SelectItem>
+          <SelectItem value='3'>Маркетинг</SelectItem>
         </SelectGroup>
       </SelectContent>
     </>

@@ -16,10 +16,6 @@ export default async function EventsPage({
   let currentEvents = await fetchData<Event[]>({ url: '/event' })
   currentEvents = currentEvents.slice(0, 3)
 
-  // ternary operator in jsx as alternative
-  if (Object.keys(searchParams).length > 0) {
-    return <AppliedFilter />
-  }
   return (
     <div className='container mx-auto mt-10 max-w-screen-xl text-main'>
       <h2 className={cn('text-[30px] font-medium leading-9 tracking-tighter', eUK.className)}>
@@ -29,29 +25,33 @@ export default async function EventsPage({
         <SelectFilters />
         <SearchInput />
       </div>
-      <>
-        <div className='mt-10'>
-          <h2 className={cn('mb-4 text-[30px] font-medium leading-9 tracking-tighter', eUK.className)}>
-            Найближчі події
-          </h2>
-          <BigEventCard />
-          <div className='mt-6 flex gap-6'>
-            {currentEvents.map((event, index) => (
-              <DefaultEventCard
-                title={event.title}
-                category={event.eventType}
-                price={1200}
-                contentType={event.eventType}
-                thumbnail={event.thumbnail}
-                key={event.id}
-                imgId={index + 1}
-              />
-            ))}
+      {Object.keys(searchParams).length > 0 ? (
+        <AppliedFilter {...searchParams} />
+      ) : (
+        <>
+          <div className='mt-10'>
+            <h2 className={cn('mb-4 text-[30px] font-medium leading-9 tracking-tighter', eUK.className)}>
+              Найближчі події
+            </h2>
+            <BigEventCard />
+            <div className='mt-6 flex gap-6'>
+              {currentEvents.map((event, index) => (
+                <DefaultEventCard
+                  title={event.title}
+                  category={event.eventType}
+                  price={1200}
+                  contentType={event.eventType}
+                  thumbnail={event.thumbnail}
+                  key={event.id}
+                  imgId={index + 1}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-        <EventsContentRow title='Цього місяця' url='/event/get-this-month-events' />
-        <EventsContentRow title='Наступного місяця' url='/event/get-after-month-events' />
-      </>
+          <EventsContentRow title='Цього місяця' url='/event/get-this-month-events' />
+          <EventsContentRow title='Наступного місяця' url='/event/get-after-month-events' />
+        </>
+      )}
     </div>
   )
 }

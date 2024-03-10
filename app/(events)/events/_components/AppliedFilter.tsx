@@ -1,13 +1,20 @@
 import { fetchData } from '@/lib/fetchData'
 import { Event } from '@/types/event'
 import { DefaultEventCard } from '@/components/Cards'
-import { cn, getRandomNumber } from '@/lib/utils'
+import { cn, generateQueryString, getRandomNumber } from '@/lib/utils'
 import { eUK } from '@/app/_font/eUK'
+import { FilterParams } from '@/types'
 
-const AppliedFilter = async () => {
-  const currentEvents = await fetchData<Event[]>({ url: '/event' })
+const AppliedFilter = async (searchParams: Partial<FilterParams>) => {
+  // rewrite endpoint on server
+  const query = generateQueryString({
+    categoryId: searchParams.category,
+    eventTypeId: searchParams.format,
+  })
+  const currentEvents = await fetchData<Event[]>({ url: `/event/parameters${query}` })
+  console.log(`/event/parameters${query}`)
   return (
-    <div className='container mx-auto mt-10 max-w-screen-xl text-main'>
+    <div className='mx-auto mt-10 max-w-screen-xl text-main'>
       <h2 className={cn('mb-4 mt-10 text-[30px] font-medium leading-9 tracking-tighter', eUK.className)}>
         Події
       </h2>
