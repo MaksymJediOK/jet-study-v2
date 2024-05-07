@@ -1,6 +1,6 @@
 import './Header.scss'
 import { Button } from '@/components/ui/button'
-import { ShoppingCart, User } from 'lucide-react'
+import { ShoppingCart } from 'lucide-react'
 import { CartDialog } from './ui'
 import { cn } from '@/lib/utils'
 import { eUK } from '@/app/_font/eUK'

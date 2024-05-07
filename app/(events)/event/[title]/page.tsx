@@ -1,8 +1,3 @@
-import { ChevronLeft } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { AccordionList } from '@/components/AccordionList'
-import Link from 'next/link'
-import Image from 'next/image'
 import { fetchData } from '@/lib/fetchData'
 import { ExtendedEvent } from '@/types/event'
 import { BreadCrumbs, ContactUsButton, LectorCard } from './_components'
