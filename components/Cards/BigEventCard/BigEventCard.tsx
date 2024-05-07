@@ -26,15 +26,21 @@ const BigEventCard = () => {
         >
           Психологія емоційного інтелекту: розуміння, розвиток та застосування в практиці
         </h3>
-        <Button
-          size='lg'
-          className='mt-8 rounded-3xl bg-[#9E53EA] px-8 py-4 text-white hover:bg-[#9E53EA]'
-        >
-          <div className='flex items-center gap-1'>
-            <span className='text-sm font-semibold leading-[14px]'>Дізнатись більше</span>
-            <ChevronRight width={20} height={20} />
+        <div className='mt-8 flex items-center gap-[19px]'>
+          <Button
+            size='lg'
+            className=' rounded-[8px] bg-[#263FC3] px-8 py-4 text-white hover:bg-[#263FC3]'
+          >
+            <div className='flex items-center gap-1'>
+              <span className='text-sm font-semibold leading-[14px]'>Дізнатись більше</span>
+              <ChevronRight width={20} height={20} />
+            </div>
+          </Button>
+          <div className='text-[#212121]'>
+            <span className='text-[28px] font-bold opacity-95'>500 ₴</span>
+            <span className='text-[12px] font-bold opacity-95'>/квиток</span>
           </div>
-        </Button>
+        </div>
       </div>
     </section>
   )
