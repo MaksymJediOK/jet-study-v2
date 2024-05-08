@@ -21,3 +21,14 @@ export const generateQueryString = (params: Partial<FilterRequestParams>): strin
 
   return searchParams.toString() ? `?${searchParams.toString()}` : ''
 }
+
+export const formatDate = (dateString: string) => {
+  const date = new Date(dateString)
+  const options: Intl.DateTimeFormatOptions = {
+    day: 'numeric',
+    month: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+  }
+  return date.toLocaleDateString('en-US', options)
+}
