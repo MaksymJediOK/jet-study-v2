@@ -29,6 +29,7 @@ const EventsContentRow = async ({ url, title }: { url: string; title: string }) 
             thumbnail={event.thumbnail}
             key={event.id}
             imgId={index + 1}
+            linkId={event.id}
           />
         ))}
       </div>

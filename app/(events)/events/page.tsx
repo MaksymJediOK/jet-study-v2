@@ -44,6 +44,7 @@ export default async function EventsPage({
                   thumbnail={event.thumbnail}
                   key={event.id}
                   imgId={index + 1}
+                  linkId={event.id}
                 />
               ))}
             </div>
