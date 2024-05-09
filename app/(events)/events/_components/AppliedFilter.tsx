@@ -12,7 +12,6 @@ const AppliedFilter = async (searchParams: Partial<FilterParams>) => {
     eventTypeId: searchParams.format,
   })
   const currentEvents = await fetchData<Event[]>({ url: `/event/parameters${query}` })
-  console.log(`/event/parameters${query}`)
   return (
     <div className='mx-auto mt-10 max-w-screen-xl text-main'>
       <h2 className={cn('mb-4 mt-10 text-[30px] font-medium leading-9 tracking-tighter', eUK.className)}>
@@ -28,6 +27,7 @@ const AppliedFilter = async (searchParams: Partial<FilterParams>) => {
             thumbnail={event.thumbnail}
             key={event.id}
             imgId={getRandomNumber()}
+            linkId={event.id}
           />
         ))}
       </div>

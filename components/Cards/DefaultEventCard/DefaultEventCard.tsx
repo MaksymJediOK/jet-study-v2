@@ -5,10 +5,23 @@ import { ChevronRight } from 'lucide-react'
 import { EventCard } from '@/types/event'
 import Link from 'next/link'
 
-const DefaultEventCard = ({ title, category, contentType, price, thumbnail, imgId, linkId }: EventCard & {imgId: number, linkId: number}) => {
+const DefaultEventCard = ({
+  title,
+  category,
+  contentType,
+  price,
+  thumbnail,
+  imgId,
+  linkId,
+}: EventCard & { imgId: number; linkId: number }) => {
   return (
     <div className='flex w-[384px] flex-col gap-[20px] rounded-[8px] p-4 shadow-lg'>
-      <Image src={`/placeholders/placeholder_card_${imgId}.png`} alt='card image' width={352} height={225} />
+      <Image
+        src={`/placeholders/placeholder_card_${imgId}.png`}
+        alt='card image'
+        width={352}
+        height={225}
+      />
       <div>
         <div className='flex justify-between uppercase'>
           <div className='flex items-center gap-2'>
@@ -32,7 +45,9 @@ const DefaultEventCard = ({ title, category, contentType, price, thumbnail, imgI
       <div className='flex justify-between'>
         <h4 className='text-2xl font-semibold leading-6'>{price} ₴</h4>
         <div className='flex items-center'>
-          <Link href={`/event/${linkId}`} className='text-sm font-semibold no-underline'>Детальніше</Link>
+          <Link href={`/event/${linkId}`} className='text-sm font-semibold no-underline'>
+            Детальніше
+          </Link>
           <ChevronRight size={20} />
         </div>
       </div>
