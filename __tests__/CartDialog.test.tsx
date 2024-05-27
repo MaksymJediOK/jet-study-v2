@@ -32,6 +32,5 @@ describe('CartDialog', () => {
     expect(getByText('Кошик порожній 😢')).toBeInTheDocument()
     expect(getByText('Змінити кошик')).toBeInTheDocument()
 
-    fireEvent.click(getByText('Змінити кошик'))
   })
 })

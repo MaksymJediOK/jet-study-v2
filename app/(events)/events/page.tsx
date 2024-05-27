@@ -8,11 +8,13 @@ import { fetchData } from '@/lib/fetchData'
 import { EventsContentRow } from '@/app/(events)/events/_components/EventsContentRow'
 import { AppliedFilter } from '@/app/(events)/events/_components/AppliedFilter'
 
+export const revalidate = 3600
 export default async function EventsPage({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
+
   let currentEvents = await fetchData<Event[]>({ url: '/event' })
   currentEvents = currentEvents.slice(0, 3)
 

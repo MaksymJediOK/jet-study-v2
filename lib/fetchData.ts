@@ -1,12 +1,18 @@
 type fetchDataOptions = {
   url: string
-  cache?: RequestCache
+  // cache?: RequestCache
+  revalidate?: number
 }
 const server_url = process.env.NEXT_PUBLIC_DEV_SERVER_URL
-export const fetchData = async <T>({ url, cache = 'force-cache' }: fetchDataOptions): Promise<T> => {
+export const fetchData = async <T>({
+  url,
+  revalidate = 3600,
+}: fetchDataOptions): Promise<T> => {
   try {
     const response = await fetch(`${server_url}${url}`, {
-      cache,
+      next: {
+        revalidate,
+      },
     })
 
     if (!response.ok) {

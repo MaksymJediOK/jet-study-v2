@@ -3,6 +3,7 @@ import { ExtendedEvent } from '@/types/event'
 import { BreadCrumbs, ContactUsButton, LectorCard, BuyCard } from './_components'
 import { cn } from '@/lib/utils'
 import { eUK } from '@/app/_font/eUK'
+import { Toaster } from '@/components/ui/toaster'
 
 export default async function DynamicEvent({ params }: { params: { title: string } }) {
   const detailedEvent = await fetchData<ExtendedEvent>({ url: `/event/${params.title}` })
@@ -64,10 +65,12 @@ export default async function DynamicEvent({ params }: { params: { title: string
               location={detailedEvent.location}
               price={detailedEvent.price}
               startDate={detailedEvent.startDate}
+              eventId={detailedEvent.id}
             />
           </section>
         </div>
       </div>
+      <Toaster />
     </>
   )
 }

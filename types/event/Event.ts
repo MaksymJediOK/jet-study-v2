@@ -32,11 +32,17 @@ export type ExtendedEvent = {
   targetedAudience: string
   seatsAvailable: number
   location: string
-  additionalRecources: string
+  additionalResources: string
   isOnline: boolean
   creator: Lector
   eventType: string
   waitingForConfirmation: null | string
   isAllowedToWatchAllContent: null | boolean
   lecturers: Lector[]
+}
+
+export type BasketItem = {
+  eventId: number
+  title: string
+  price: number
 }
