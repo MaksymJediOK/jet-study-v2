@@ -7,6 +7,7 @@ import { Event } from '@/types/event'
 import { fetchData } from '@/lib/fetchData'
 import { EventsContentRow } from '@/app/(events)/events/_components/EventsContentRow'
 import { AppliedFilter } from '@/app/(events)/events/_components/AppliedFilter'
+import { Suspense } from 'react'
 
 export const revalidate = 3600
 export default async function EventsPage({
@@ -14,7 +15,6 @@ export default async function EventsPage({
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
-
   let currentEvents = await fetchData<Event[]>({ url: '/event' })
   currentEvents = currentEvents.slice(0, 3)
 
@@ -24,7 +24,9 @@ export default async function EventsPage({
         Знайди те що тебе цікавить
       </h2>
       <div className='mt-4 flex items-center justify-between'>
-        <SelectFilters />
+        <Suspense>
+          <SelectFilters />
+        </Suspense>
         <SearchInput />
       </div>
       {Object.keys(searchParams).length > 0 ? (

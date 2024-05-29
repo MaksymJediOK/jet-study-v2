@@ -7,7 +7,7 @@ import { Toaster } from '@/components/ui/toaster'
 
 export default async function DynamicEvent({ params }: { params: { title: string } }) {
   const detailedEvent = await fetchData<ExtendedEvent>({ url: `/event/${params.title}` })
-  console.log(detailedEvent)
+
   return (
     <>
       <div className='text-sm leading-[14px] text-[#212121]'>

@@ -1,0 +1,12 @@
+version: '3'
+services:
+  frontend:
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NEXT_PUBLIC_DEV_SERVER_URL_DK=${NEXT_PUBLIC_DEV_SERVER_URL_DK}
+    command: npm run dev

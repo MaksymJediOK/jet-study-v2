@@ -3,7 +3,7 @@ type fetchDataOptions = {
   // cache?: RequestCache
   revalidate?: number
 }
-const server_url = process.env.NEXT_PUBLIC_DEV_SERVER_URL
+const server_url = process.env.NEXT_PUBLIC_DEV_SERVER_URL_DK
 export const fetchData = async <T>({
   url,
   revalidate = 3600,

@@ -1,0 +1,18 @@
+node_modules
+.next
+.eslint*
+*.log
+
+# Exclude source control directories
+.git
+.gitignore
+
+# Exclude editor-specific files
+.vscode
+.idea
+
+# Exclude build artifacts and temporary files
+.DS_Store
+dist
+npm-debug.log
+yarn-error.log
