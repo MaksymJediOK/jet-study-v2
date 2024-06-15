@@ -1,9 +1,8 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
-
 import {
   Sheet,
   SheetClose,
@@ -15,15 +14,18 @@ import {
 } from '@/components/ui/sheet'
 import { BasketListItem } from '@/components/BasketListItem'
 import { useBasketStore } from '@/store/BasketStore'
+import { useUserStore } from '@/store'
 
 const CartDialog = ({ children }: { children: React.ReactNode }) => {
   const { items, setItems } = useBasketStore()
+  const { setToken } = useUserStore()
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem('basket') as string)
-    if (storedCart) {
-      setItems(storedCart)
-    }
+    const unparsedToken =localStorage.getItem('token') as string
+    const token = unparsedToken ?  JSON.parse(unparsedToken) : ''
+    if (storedCart) setItems(storedCart)
+    if (token) setToken(token)
   }, [])
 
   useEffect(() => {
@@ -39,7 +41,7 @@ const CartDialog = ({ children }: { children: React.ReactNode }) => {
             Кошик
           </SheetTitle>
         </SheetHeader>
-        <div className='grid grid-cols-1 gap-4 py-4'>
+        <div className='grid grid-cols-1 items-center gap-4 py-4'>
           {items.length > 0 ? (
             items.map((item) => {
               return <BasketListItem key={item.eventId} {...item} />

@@ -1,3 +1,4 @@
+import React from 'react'
 import useSWRMutation from 'swr/mutation'
 import { loginUser } from '@/lib/authMutations'
 import { formSchema, UserAuthType } from '@/components/UserAuthForm/formSchema'
@@ -7,16 +8,23 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { RotateCw } from 'lucide-react'
-import React from 'react'
+import { useRouter } from 'next/navigation'
+import { storageKeys } from '@/constants'
 
 const SignInForm = () => {
+  const router = useRouter()
   const { trigger, isMutating } = useSWRMutation('/auth/login', loginUser)
   const onSubmit = async ({ email, password }: UserAuthType) => {
-    const result = await trigger({
-      email,
-      password,
-    })
-    console.log(result)
+    try {
+      const result = await trigger({ email, password })
+      if (result?.key) {
+        localStorage.setItem(storageKeys.Token, JSON.stringify(result.key))
+      }
+    } catch (error) {
+      console.error('Login failed:', error)
+    } finally {
+      router.replace('/events')
+    }
   }
   const form = useForm<UserAuthType>({
     resolver: zodResolver(formSchema),

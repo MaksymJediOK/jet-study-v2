@@ -12,7 +12,9 @@ export const getRandomNumber = (): number => {
   return Math.floor(randomDecimal * 3) + 1
 }
 
-export const generateQueryString = (params: Partial<FilterRequestParams>): string => {
+export const generateQueryString = (
+  params: Partial<FilterRequestParams>,
+): string => {
   const searchParams = new URLSearchParams(
     Object.entries(params)
       .filter(([_, value]) => value !== null && value !== undefined)

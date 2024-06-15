@@ -1,4 +1,3 @@
-import { SearchInput } from '@/components/ui/input'
 import { SelectFilters } from '@/components/SelectFilters'
 import { cn } from '@/lib/utils'
 import { eUK } from '@/app/_font/eUK'
@@ -27,7 +26,6 @@ export default async function EventsPage({
         <Suspense>
           <SelectFilters />
         </Suspense>
-        <SearchInput />
       </div>
       {Object.keys(searchParams).length > 0 ? (
         <AppliedFilter {...searchParams} />

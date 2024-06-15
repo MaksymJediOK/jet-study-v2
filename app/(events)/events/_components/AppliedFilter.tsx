@@ -7,12 +7,14 @@ import { FilterParams } from '@/types'
 import PaginationBlock from '@/components/PaginationBlock/PaginationBlock'
 
 const AppliedFilter = async (searchParams: Partial<FilterParams>) => {
-  // rewrite endpoint on server
   const query = generateQueryString({
+    search: searchParams.search,
     categoryId: searchParams.category,
     eventTypeId: searchParams.format,
   })
+
   const currentEvents = await fetchData<Event[]>({ url: `/event/parameters${query}` })
+
   return (
     <div className='mx-auto mt-10 max-w-screen-xl text-main'>
       <h2 className={cn('mb-4 mt-10 text-[30px] font-medium leading-9 tracking-tighter', eUK.className)}>

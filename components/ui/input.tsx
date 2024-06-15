@@ -23,14 +23,17 @@ Input.displayName = 'Input'
 const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
     return (
-      <div className='flex items-center border border-input  rounded-l-[48px] border-r-0'>
-        <Search width={16} height={16} className='my-[10px] ml-4 mr-2' color='grey' />
+      <div className='flex items-center '>
+        <div className='max-h-[40px] rounded-l-lg border-b border-l border-t py-3 pl-1'>
+          <Search width={16} height={16} className=' ml-2 mr-2' color='grey' />
+        </div>
         <input
           type={type}
           placeholder='Назва, Тема'
-          className={
-            'flex h-10 w-full bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none  disabled:cursor-not-allowed disabled:opacity-50'
-          }
+          className={cn(
+            'flex h-10 w-full rounded-r-lg border-b border-r border-t bg-background py-2 pl-0.5 pr-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+            className,
+          )}
           ref={ref}
           {...props}
         />
