@@ -8,7 +8,7 @@ export type Event = {
   title: string
   thumbnail: string
   imageSrc: string
-  startDate: Date
+  startDate: string
   startTime: string
   creator: Lector
   eventType: string

@@ -1,6 +1,7 @@
 import { CartItem } from '@/components/CartItem'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import Link from 'next/link'
 
 export default function CartPage() {
   return (
@@ -25,7 +26,9 @@ export default function CartPage() {
             <p>Знижка</p>
             <span>0.00 $</span>
           </div>
-          <Button className='h-[48px] py-3 text-base leading-6'> Оформити</Button>
+          <Link href='/checkout' className='no-underline'>
+            <Button className='h-[48px] w-full py-3 text-base leading-6'>Оформити</Button>{' '}
+          </Link>
         </div>
         <div className='flex flex-col gap-3'>
           <p className='text-lg leading-[22px]'>Промокод</p>

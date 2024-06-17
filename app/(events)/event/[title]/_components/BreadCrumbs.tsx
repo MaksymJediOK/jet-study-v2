@@ -7,7 +7,7 @@ const BreadCrumbs = ({ eventTitle = 'ye' }: { eventTitle?: string }) => {
       <span>/</span>
       <span className='opacity-50'>Дизайн</span>
       <span>/</span>
-      <span>10 евристик Якоба Нільсона та їх застосування в веб-інтерфейсах</span>
+      <span>{eventTitle}</span>
     </div>
   )
 }

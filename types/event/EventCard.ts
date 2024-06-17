@@ -1,6 +1,7 @@
 export type EventCard = {
-  category: string
   contentType: string
+  categoryId: number
+  startDate: string
   price: number
   title: string
   thumbnail: string

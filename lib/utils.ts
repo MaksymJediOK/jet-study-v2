@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { FilterRequestParams } from '@/types'
+import { categoryTypes } from '@/constants'
 
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
@@ -12,9 +13,7 @@ export const getRandomNumber = (): number => {
   return Math.floor(randomDecimal * 3) + 1
 }
 
-export const generateQueryString = (
-  params: Partial<FilterRequestParams>,
-): string => {
+export const generateQueryString = (params: Partial<FilterRequestParams>): string => {
   const searchParams = new URLSearchParams(
     Object.entries(params)
       .filter(([_, value]) => value !== null && value !== undefined)
@@ -34,3 +33,5 @@ export const formatDate = (dateString: string) => {
   }
   return date.toLocaleDateString('en-US', options)
 }
+
+export const getCategory = (id: number) => categoryTypes.find((category) => category.id === id)?.title

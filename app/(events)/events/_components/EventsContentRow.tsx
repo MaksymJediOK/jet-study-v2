@@ -23,13 +23,14 @@ const EventsContentRow = async ({ url, title }: { url: string; title: string }) 
         {monthEvents.map((event, index) => (
           <DefaultEventCard
             title={event.title}
-            category={event.eventType}
             price={1200}
             contentType={event.eventType}
+            categoryId={event.categoryId}
             thumbnail={event.thumbnail}
             key={event.id}
             imgId={index + 1}
             linkId={event.id}
+            startDate={event.startDate}
           />
         ))}
       </div>

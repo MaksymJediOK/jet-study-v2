@@ -11,12 +11,12 @@ export default async function DynamicEvent({ params }: { params: { title: string
   return (
     <>
       <div className='text-sm leading-[14px] text-[#212121]'>
-        <BreadCrumbs eventTitle={params.title} />
+        <BreadCrumbs eventTitle={detailedEvent.title} />
         <div className='mt-8'>
           <section className='flex gap-16'>
             <div className='max-w-[690px]'>
               <div className='flex items-center gap-2'>
-                <span>Дизайн</span>
+                <span>Software</span>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='3'
@@ -30,7 +30,7 @@ export default async function DynamicEvent({ params }: { params: { title: string
               </div>
               <img
                 className='my-8 h-[392px] w-[690px] rounded-lg'
-                src='https://s3-alpha-sig.figma.com/img/36ba/a6b4/fc5c7b4bf4dd03e243422d9450d0798b?Expires=1716163200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lJh-enMgHGqG1Te4KuiOYQspPB7HFmINHb8pFEWdU0hPOo1XfiW3ejzPG4iOnp1wQrSqFiQT3kH7Q5YYYZ7z~vDH41WJOePuUjUdigMBMdK4~Si-MY1yjB~NuOcRvhvExFrG3Gn12abPwRQ9PkWF7w8ONuiQ8xomk37u~NrDqtacVeXDEwhZ7nPzChgSl0TsPUrY-aDVALtbafhZOlrgOBFCmo1l8~oWqTFEV~754dtg1Zwz5NcAqj231Uxt8GhII9yEFB6hZitnRXFwMV1-glQeCpd5vO2nxbVrO2p1DXZaihYAeBEwkkElGNA9aCjHM2etWmrJzYIDf77OuHe6xQ__'
+                src='https://www.xbasic.org/wp-content/uploads/2022/07/Python.jpg'
                 alt='event image'
               />
               <h1 className={cn('text-[32px] leading-[32px]', eUK.className)}>{detailedEvent.title}</h1>

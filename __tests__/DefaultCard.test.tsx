@@ -26,7 +26,8 @@ jest.mock('next/link', () => ({ children, href }: { children: React.ReactNode; h
 describe('DefaultEventCard', () => {
   const props: EventCard & { imgId: number; linkId: number } = {
     title: 'Test Event',
-    category: 'Category',
+    categoryId: 1,
+    startDate: 'Date',
     contentType: 'Type',
     price: 100,
     thumbnail: '/path/to/thumbnail.png',
@@ -42,7 +43,8 @@ describe('DefaultEventCard', () => {
     render(<DefaultEventCard {...props} />)
 
     expect(screen.getByText(props.title)).toBeInTheDocument()
-    expect(screen.getByText(props.category)).toBeInTheDocument()
+    expect(screen.getByText(props.categoryId)).toBeInTheDocument()
+    expect(screen.getByText(props.startDate)).toBeInTheDocument()
     expect(screen.getByText(props.contentType)).toBeInTheDocument()
     expect(screen.getByText(`${props.price} ₴`)).toBeInTheDocument()
     expect(screen.getByText('Детальніше')).toBeInTheDocument()

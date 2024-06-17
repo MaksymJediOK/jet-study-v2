@@ -11,7 +11,7 @@ type fetchDataOptions = {
   revalidate?: number
 }
 const server_url = process.env.NEXT_PUBLIC_DEV_SERVER_URL
-export const fetchData = async <T>({ url, revalidate = 3600 }: fetchDataOptions): Promise<T> => {
+export const fetchData = async <T>({ url, revalidate = 10 }: fetchDataOptions): Promise<T> => {
   try {
     const response = await fetch(`${server_url}${url}`, {
       next: {

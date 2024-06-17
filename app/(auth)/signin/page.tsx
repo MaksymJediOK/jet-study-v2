@@ -7,15 +7,14 @@ import { Button } from '@/components/ui/button'
 import { useGoogleLogin } from '@react-oauth/google'
 import useSWRMutation from 'swr/mutation'
 import { loginViaGoogle } from '@/lib/authMutations'
+import { useRouter } from 'next/navigation'
 
 export default function SignInPage() {
   const { trigger, isMutating } = useSWRMutation('/auth/login-with-google', loginViaGoogle)
+  const router = useRouter()
   const login = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
-      const res = await trigger({
-        credential: tokenResponse.access_token,
-      })
-      console.log(res)
+      router.push('/events')
     },
     onError: (errorResponse) => console.log(errorResponse),
   })

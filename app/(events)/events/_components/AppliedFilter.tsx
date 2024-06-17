@@ -24,19 +24,20 @@ const AppliedFilter = async (searchParams: Partial<FilterParams>) => {
         {currentEvents.map((event) => (
           <DefaultEventCard
             title={event.title}
-            category={event.eventType}
             price={1200}
             contentType={event.eventType}
+            categoryId={event.categoryId}
             thumbnail={event.thumbnail}
             key={event.id}
             imgId={getRandomNumber()}
             linkId={event.id}
+            startDate={event.startDate}
           />
         ))}
       </div>
-      <div className='mt-16'>
-        <PaginationBlock pageCount={2} />
-      </div>
+      {/*<div className='mt-16'>*/}
+      {/*  <PaginationBlock pageCount={2} />*/}
+      {/*</div>*/}
     </div>
   )
 }
